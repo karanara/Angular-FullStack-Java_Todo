@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,13 @@ username: string = 'ramya';
   password: string = '';
   errorMessage: string = 'Invalid Credentials';
   invalidLogin: boolean = false;
- constructor(private router:Router){
+ constructor(private router:Router,private hardcodedAuthenticationService:HardcodedAuthenticationService){
  }
  ngOnInit(){
 
  }
  handleLogin(){
-  if(this.username==='ramya' && this.password==='password'){
+  if(this.hardcodedAuthenticationService.authenticate(this.username,this.password)){
     this.router.navigate(['welcome',this.username]);
     this.invalidLogin=false;
   }
