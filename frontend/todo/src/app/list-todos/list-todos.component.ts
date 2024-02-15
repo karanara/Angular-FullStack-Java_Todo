@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { TodoDataService } from '../service/data/todo-data.service';
 export class Todo{
   constructor(
     public id: number,
+    public username:string,
     public description:string,
     public done :boolean,
     public targetDate : Date
@@ -18,14 +20,14 @@ export class Todo{
   styleUrl: './list-todos.component.css'
 })
 export class ListTodosComponent implements OnInit {
- todos=[
-  new Todo(1,'Learn to Dance',false,new Date()),
-  new Todo(2,'Become an expert in full stack',false,new Date()),
-  new Todo(3,"Visit the COurse",false,new Date())
- ]
+ todos: any = [];
  
  ngOnInit() {
-     
+     this.todoService.retreiveAllTodos('ramya').subscribe(
+      response=>{
+        this.todos= response;
+      }
+     )
  }
- constructor(){}
+ constructor(private todoService:TodoDataService){}
 }
