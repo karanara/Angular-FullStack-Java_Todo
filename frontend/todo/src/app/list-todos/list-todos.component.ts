@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
 export class Todo{
@@ -15,19 +15,31 @@ export class Todo{
 @Component({
   selector: 'app-list-todos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,NgIf],
   templateUrl: './list-todos.component.html',
   styleUrl: './list-todos.component.css'
 })
 export class ListTodosComponent implements OnInit {
  todos: any = [];
+ message: string | undefined;
  
  ngOnInit() {
-     this.todoService.retreiveAllTodos('ramya').subscribe(
+     this.refreshTodos();
+ }
+ refreshTodos(){
+  this.todoService.retreiveAllTodos('ramya').subscribe(
+    response=>{
+      this.todos= response;
+    }
+   )
+ }
+ constructor(private todoService:TodoDataService){}
+ deleteTodo(id:number){
+     this.todoService.deleteTodo('ramya',id).subscribe(
       response=>{
-        this.todos= response;
+        this.message=`Todo of ${id} has been deleted Successfully`;
+        this.refreshTodos();
       }
      )
  }
- constructor(private todoService:TodoDataService){}
 }
