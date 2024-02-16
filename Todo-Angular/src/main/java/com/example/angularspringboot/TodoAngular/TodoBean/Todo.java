@@ -68,6 +68,9 @@ public class Todo {
 		return "Todo [id=" + id + ", username=" + username + ", description=" + description + ", targetDate="
 				+ targetDate + ", isDone=" + isDone + "]";
 	}
+	protected Todo() {
+		
+	}
 	
 
 }

@@ -1,6 +1,7 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
+import { Router } from '@angular/router';
 export class Todo{
   constructor(
     public id: number,
@@ -33,7 +34,7 @@ export class ListTodosComponent implements OnInit {
     }
    )
  }
- constructor(private todoService:TodoDataService){}
+ constructor(private todoService:TodoDataService,private router:Router){}
  deleteTodo(id:number){
      this.todoService.deleteTodo('ramya',id).subscribe(
       response=>{
@@ -41,5 +42,8 @@ export class ListTodosComponent implements OnInit {
         this.refreshTodos();
       }
      )
+ }
+ updateTodo(id:number){
+   this.router.navigate(['todos',id]);
  }
 }
