@@ -1,4 +1,4 @@
-package com.example.angularspringboot.TodoAngular.basicAuth;
+/*package com.example.angularspringboot.TodoAngular.basicAuth;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,4 +12,4 @@ public class BasicAuthenticationController {
 	public AuthenticationBean helloWorldBean() {
 		return new AuthenticationBean("You are authenticated to Todos");
 	}
-}
+}*/

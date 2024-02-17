@@ -45,4 +45,16 @@ username: string = 'ramya';
     }
   )  
  }
+ handleJWTLogin(){
+  this.basicAuthenticationService.executeJWTAuthenticationService(this.username,this.password)
+  .subscribe(
+    data=>{
+      this.router.navigate(['welcome',this.username]);
+      this.invalidLogin=false;
+    },
+    error=>{
+      this.invalidLogin=true;
+    }
+  )  
+ }
 }

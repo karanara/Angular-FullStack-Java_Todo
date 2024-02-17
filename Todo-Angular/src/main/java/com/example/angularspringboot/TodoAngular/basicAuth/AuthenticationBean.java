@@ -1,4 +1,4 @@
-package com.example.angularspringboot.TodoAngular.basicAuth;
+/*package com.example.angularspringboot.TodoAngular.basicAuth;
 
 public class AuthenticationBean {
 
@@ -21,4 +21,4 @@ public class AuthenticationBean {
 		return "AuthenticationBean [message=" + message + "]";
 	}
 	
-}
+}*/

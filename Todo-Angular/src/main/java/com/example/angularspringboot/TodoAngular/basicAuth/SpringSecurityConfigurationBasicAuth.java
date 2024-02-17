@@ -1,4 +1,4 @@
-package com.example.angularspringboot.TodoAngular.basicAuth;
+/*package com.example.angularspringboot.TodoAngular.basicAuth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -15,4 +15,4 @@ public class SpringSecurityConfigurationBasicAuth {
 		http.httpBasic(Customizer.withDefaults());
 		return http.build();
 	}
-}
+}*/
