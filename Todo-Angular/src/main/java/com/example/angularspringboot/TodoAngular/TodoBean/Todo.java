@@ -3,8 +3,15 @@ package com.example.angularspringboot.TodoAngular.TodoBean;
 import java.util.Date;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Todo {
 	
+	@Id
+	@GeneratedValue
     private Long id;
 	private String username;
 	private String description;
